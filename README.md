@@ -1,1 +1,1 @@
-# holbertonschool-simple_shell
+description of the shell project
