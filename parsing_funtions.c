@@ -38,7 +38,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
   
   token_count = 0;
   
-  write(STDOUT_FILENO, str_len);
+  write(STDOUT_FILENO, PROMPT, str_len(PROMPT));
   
   read_len = getline(&line, &size, stdin);
   
