@@ -26,7 +26,7 @@
 
 #include <signal.h>
 
-#define PROMPT "Main $ "
+
 
 
 
