@@ -48,6 +48,6 @@ int main(__attribute__((unused)) int ac, char **av)
   
 
   
-  return (1);
+  return (0);
   
 }
