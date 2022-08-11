@@ -74,7 +74,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
   
   else
     
-    exit_b;
+    exit_b(0);
   
 }
 
