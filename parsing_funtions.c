@@ -344,5 +344,5 @@ int count_token(char *line, const char *delim)
   
   return (i);
   
-	fflush( stdout );
+	
 }
