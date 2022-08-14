@@ -94,7 +94,7 @@ char *_strdup(char *src)
 
  */
 
-void print_str(char *str)
+void print_str(char *str, int new_line)
   
 {
   
@@ -110,7 +110,8 @@ void print_str(char *str)
     
     write(STDOUT_FILENO, &str[i], 1);
   
-  
+  if (new_line == 0)
+		write(STDOUT_FILENO, "\n", 1);
   
 }
 
