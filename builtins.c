@@ -57,7 +57,7 @@ void exit_b(char *line)
 {
 	free(line);
 	print_str("\n", 1);
-	exit(1);
+	exit(0);
 }
 
 /**
