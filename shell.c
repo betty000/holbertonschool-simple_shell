@@ -46,7 +46,7 @@ int main(__attribute__((unused)) int ac, char **av)
     
   } while (1);
   
-fflush( stdout );
+fflush(stdout);
   
   return (0);
   
