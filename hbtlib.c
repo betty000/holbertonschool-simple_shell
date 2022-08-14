@@ -94,7 +94,7 @@ char *_strdup(char *src)
 
  */
 
-void print_str(char *str, int new_line)
+void print_str(char *str)
   
 {
   
