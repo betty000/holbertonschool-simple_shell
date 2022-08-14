@@ -42,7 +42,7 @@ int main(__attribute__((unused)) int ac, char **av)
     
     parse_line(line, size, command_counter, av);
     
-
+fflush( stdout );
     
   } while (1);
   
