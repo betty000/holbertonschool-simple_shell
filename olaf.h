@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <stdarg.h>
 #include <signal.h>
-#define PROMPT "Olaf $ "
+
 
 
 /**
