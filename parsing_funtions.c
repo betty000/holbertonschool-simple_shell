@@ -32,7 +32,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
   
   char **param_array;
   
-  const char *delim = "\t ";
+  const char *delim = "\n\t ";
   
 
   
