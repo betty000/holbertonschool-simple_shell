@@ -1,4 +1,4 @@
-#include "olaf.h"
+#include "main.h"
 /**
  * parse_line - Parses the command line looking for commands and argumements.
  * This function it is also in charged of freeing memory that is not longer
