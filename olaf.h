@@ -1,5 +1,5 @@
-#ifndef _OLAF_
-#define _OLAF_
+#ifndef _MAIN_
+#define _MAIN_
 
 #include <string.h>
 #include <stdio.h>
