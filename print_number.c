@@ -1,4 +1,4 @@
-#include "olaf.h"
+#include "main.h"
 
 /**
  * print_number - Prints an unsigned number
