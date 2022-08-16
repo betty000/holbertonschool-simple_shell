@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * main - Entry point of the program.
- * @ac: The number of parameters passed to the executable file. In the case
+ * main - main program of the simple shell
+ * @ac: The number of parameters passed to the executable file. In this case
  * this variable will not be used.
  * @av: The name of the program.
  * Return: Always 0.
