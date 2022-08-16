@@ -1,4 +1,4 @@
-#include "olaf.h"
+#include "main.h"
 
 /**
  * path_finder - Acts as an interface for functions that will be able to
