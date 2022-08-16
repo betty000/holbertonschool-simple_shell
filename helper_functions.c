@@ -1,4 +1,4 @@
-#include "olaf.h"
+#include "main.h"
 /**
  * str_len - Calculates the lenght of a string.
  * @str: String that needs length to be found.
