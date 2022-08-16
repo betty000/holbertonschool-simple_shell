@@ -7,7 +7,7 @@
  * @av: The name of the program.
  * Return: Always 0.
  */
-int main(__attribute__((unused)) int ac, char **av)
+int main(__attribute__((unused)) int ac, char **av) /*call parse_line*/
 {
 	char *line;
 	size_t size;
@@ -17,8 +17,8 @@ int main(__attribute__((unused)) int ac, char **av)
 	signal(SIGINT, SIG_IGN); /*not able to use keyboard to interrupt*/
 	do {
 		command_counter++;
-		line = NULL;
-		size = 0;
+		line = NULL; /*is necesary to initialize before calling the function*/
+		size = 0; /*is necesary to initialize before calling the function*/
 		parse_line(line, size, command_counter, av);
 
 	} while (1);
