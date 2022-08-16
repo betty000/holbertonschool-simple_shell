@@ -14,7 +14,7 @@ int main(__attribute__((unused)) int ac, char **av)
 	int command_counter;
 
 	command_counter = 0;
-	signal(SIGINT, SIG_IGN);
+	signal(SIGINT, SIG_IGN); /*not able to use keyboard to interrupt*/
 	do {
 		command_counter++;
 		line = NULL;
