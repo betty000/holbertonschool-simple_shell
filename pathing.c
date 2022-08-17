@@ -7,7 +7,7 @@
  * Return: Upon sucess a string with the full path of the program.
  * for example /bin/ls, /bin/echo, etc. Otherwise returns NULL.
  */
-char *path_finder(char *command)
+char *path_finder(char *command) /*calls other functions for the path*/
 {
 	char *str = "PATH";
 	char *constructed;
@@ -15,19 +15,19 @@ char *path_finder(char *command)
 	int index;
 	char *directory;
 
-	index = find_path(str);
-	path_tokens = tokenize_path(index, str);
+	index = find_path(str); /*?*/
+	path_tokens = tokenize_path(index, str); /*?*/
 	if (path_tokens == NULL)
 		return (NULL);
 
-	directory = search_directories(path_tokens, command);
+	directory = search_directories(path_tokens, command); /*?*/
 	if (directory == NULL)
 	{
-		double_free(path_tokens);
+		double_free(path_tokens); /*?*/
 		return (NULL);
 	}
 
-	constructed = build_path(directory, command);
+	constructed = build_path(directory, command); /*?*/
 	if (constructed == NULL)
 	{
 		double_free(path_tokens);
@@ -51,14 +51,14 @@ int find_path(char *str)
 	int j;
 
 	len = str_len(str);
-	for (i = 0; environ[i] != NULL; i++)
-	{
+	for (i = 0; environ[i] != NULL; i++) /*variable points to an array*/ 
+	{ /*of pointers to string called the "environment"*/
 		for (j = 0; j < len; j++)
 		{
 			if (environ[i][j] != str[j])
 				break;
 		}
-		if (j == len && environ[i][j] == '=')
+		if (j == len && environ[i][j] == '=') /*the strings in environ have the form "name=value"*/
 			return (i);
 	}
 	return (-1);
