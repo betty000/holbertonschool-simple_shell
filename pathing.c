@@ -118,7 +118,7 @@ char *search_directories(char **path_tokens, char *command)
 		command = command + 1;
 	for (i = 0; path_tokens[i] != NULL; i++)
 	{
-		s = chdir(path_tokens[i]);
+		s = chdir(path_tokens[i]); /*change working directory */
 		if (s == -1)
 		{
 			perror("ERROR!");
