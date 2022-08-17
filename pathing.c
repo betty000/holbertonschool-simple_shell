@@ -55,7 +55,7 @@ int find_path(char *str)
 	{ /*of pointers to string called the "environment"*/
 		for (j = 0; j < len; j++)
 		{
-			if (environ[i][j] != str[j])
+			if (environ[i][j] != str[j]) /*identify if error at not being the same string*/
 				break;
 		}
 		if (j == len && environ[i][j] == '=') /*the strings in environ have the form "name=value"*/
