@@ -85,10 +85,10 @@ void create_child(char **param_array, char *line, int count, char **av)
 			if (execve(param_array[0], param_array, environ) == -1) /*replace the program for the one with the filename, use the variable that point to vector*/
 				exec_error(av[0], count, tmp_command); /*print exec error*/
 		}
-		WEXITSTATUS(0);
 	}
 	else
 		wait(&status);
+	return (0)
 }
 
 /**
