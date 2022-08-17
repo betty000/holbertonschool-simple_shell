@@ -21,7 +21,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	read_len = getline(&line, &size, stdin); /*we get the lenght of the line*/
 	if (read_len != -1) /*condition to creat array*/
 	{
-		param_array = token_interface(line, delim, token_count); /*array calls the function token*/
+		param_array = token_interface(line, delim, token_count); /*array calls the function token, that separate the arguments*/
 		if (param_array[0] == NULL) /*if array is null free array with function*/
 		{
 			single_free(2, param_array, line);
@@ -29,7 +29,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		}
 		i = built_in(param_array, line); /*?*/
 		if (i == -1)
-			create_child(param_array, line, command_counter, av);
+			create_child(param_array, line, command_counter, av); /**/
 		for (i = 0; param_array[i] != NULL; i++) /*free the array, need to be free all the positions*/
 			free(param_array[i]);
 		single_free(2, param_array, line); /*free array with function*/
