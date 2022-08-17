@@ -111,7 +111,7 @@ char *search_directories(char **path_tokens, char *command)
 
 	buf = NULL;
 	size = 0;
-	cwd = getcwd(buf, size);
+	cwd = getcwd(buf, size); /*Obteins the current directory were we are working*/
 	if (cwd == NULL)
 		return (NULL);
 	if (command[0] == '/')
