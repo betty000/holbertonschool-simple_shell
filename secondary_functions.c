@@ -25,7 +25,7 @@ int _strcmp(char *s1, char *s2)
  * @src: Contains the original string
  * Return: Gives back the copy of string
  */
-char *_strdup(char *src)
+/** char *_strdup(char *src)
 {
 	int i;
 	int len;
@@ -38,7 +38,32 @@ char *_strdup(char *src)
 		dest[i] = src[i];
 	dest[i] = '\0';
 	return (dest);
-}
+}*/
+char *c_strdup(char *str, int cs)
+{
+	char *duplicate_str;
+	int i, len = 0;
+
+	if (str == NULL) /* validate str input */
+		return (NULL);
+
+	/* calculate len + null terminator to malloc */
+	while (*(str + len))
+		len++;
+	len++;
+
+	/* allocate memory but exclude environmental variable title (PATH) */
+	duplicate_str = malloc(sizeof(char) * (len - cs));
+	if (duplicate_str == NULL)
+		return (NULL);
+
+	i = 0;
+	while (i < (len - cs))
+	{
+		*(duplicate_str + i) = *(str + cs + i);
+		i++;
+	}
+	return (duplicate_str);
 
 /**
  * print_str - Prints a string character by character.
