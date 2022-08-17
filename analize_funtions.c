@@ -87,8 +87,7 @@ void create_child(char **param_array, char *line, int count, char **av)
 		}
 	}
 	else
-		wait(&status); /*suspend the process call by fork*/
-	WEXITSTATUS(status);
+		WEXITSTATUS(status);
 }
 
 /**
