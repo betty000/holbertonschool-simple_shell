@@ -60,16 +60,6 @@ void exit_b(char *line)
 }
 
 /**
- * exit_c - Exits the shell. After freeing allocated resources.
- * @line: A string representing the input from the user.
- */
-void exit_c(char *line)
-{
-	free(line);
-	exit(2);
-}
-
-/**
  * check_built_ins - Finds the right function needed for execution.
  * @str: The name of the function that is needed.
  * Return: Upon sucess a pointer to a void function. Otherwise NULL.
@@ -79,7 +69,7 @@ void (*check_built_ins(char *str))(char *str)
 	int i;
 
 	builtin_t buildin[] = {
-		{"exit", exit_c},
+		{"exit", exit_b},
 		{"env", env_b},
 		{"cd", cd_b},
 		{NULL, NULL}
