@@ -87,8 +87,8 @@ void create_child(char **param_array, char *line, int count, char **av)
 		}
 	}
 	else
-		/*wait(&status);*/
-		WEXITSTATUS(status);
+		wait(&status);
+		/*WEXITSTATUS(status);*/
 		
 	
 }
