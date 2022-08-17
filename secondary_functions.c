@@ -39,7 +39,7 @@ int _strcmp(char *s1, char *s2)
 	dest[i] = '\0';
 	return (dest);
 }*/
-char *c_strdup(char *str, int cs)
+char *_strdup(char *str, int cs)
 {
 	char *duplicate_str;
 	int i, len = 0;
