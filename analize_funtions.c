@@ -7,12 +7,12 @@
  * @size: A holder for numbers of size_t. Will always be initilized to 0.
  * @command_counter: A counter keeping track of how many commands have been
  * entered into the shell.
- * @av: Name of the program running the shell
+ * @av: Name of the program running the shell  ?????????
  */
 void parse_line(char *line, size_t size, int command_counter, char **av)
 {
 	int i;
-	ssize_t read_len;
+	ssize_t read_len; /*data type*/
 	int token_count;
 	char **param_array;
 	const char *delim = "\n\t ";
@@ -49,7 +49,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
  */
 void create_child(char **param_array, char *line, int count, char **av)
 {
-	pid_t id;
+	pid_t id; /*data type*/
 	int status;
 	int i;
 	int check;
@@ -57,24 +57,24 @@ void create_child(char **param_array, char *line, int count, char **av)
 	char *tmp_command;
 	char *command;
 
-	id = fork();
+	id = fork(); /*make a call to the father to run the next code at the same time*/
 	if (id == 0)
 	{
 		tmp_command = param_array[0];
-		command = path_finder(param_array[0]);
-		if (command == NULL)
+		command = path_finder(param_array[0]); /*?*/
+		if (command == NULL) /*?*/
 		{
 			/*Looking for file in current directory*/
-			check = stat(tmp_command, &buf);
+			check = stat(tmp_command, &buf); /*?*/
 			if (check == -1)
 			{
-				error_printing(av[0], count, tmp_command);
+				error_printing(av[0], count, tmp_command); /*print message error*/
 				print_str(": not found", 0);
-				single_free(2, line, tmp_command);
-				for (i = 1; param_array[i]; i++)
+				single_free(2, line, tmp_command); /*free with function*/
+				for (i = 1; param_array[i]; i++) /*free the array, need to be free all the positions*/
 					free(param_array[i]);
-				free(param_array);
-				exit(100);
+				free(param_array); /*needed?*/
+				exit(100); /*?*/
 			}
 			/*file exist in cwd or has full path*/
 			command = tmp_command;
@@ -82,12 +82,12 @@ void create_child(char **param_array, char *line, int count, char **av)
 		param_array[0] = command;
 		if (param_array[0] != NULL)
 		{
-			if (execve(param_array[0], param_array, environ) == -1)
-				exec_error(av[0], count, tmp_command);
+			if (execve(param_array[0], param_array, environ) == -1) /*replace the program for the one with the filename, use the variable that point to vector*/
+				exec_error(av[0], count, tmp_command); /*print exec error*/
 		}
 	}
 	else
-		wait(&status);
+		wait(&status); /*suspend the process call by fork*/
 }
 
 /**
