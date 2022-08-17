@@ -145,7 +145,7 @@ char *search_directories(char **path_tokens, char *command)
  * Return: Upon success a string representing the full path of a command.
  * Otherwise NULL.
  */
-char *build_path(char *directory, char *command)
+char *build_path(char *directory, char *command) /*merge the directory and the command*/
 {
 	int i, j;
 	int dir_len;
@@ -172,6 +172,6 @@ char *build_path(char *directory, char *command)
 		for (j = 0; command[j] != '\0'; j++, i++)
 			built[i] = command[j];
 	}
-	built[--i] = '\0';
+	built[--i] = '\0'; /*reduce in 1 and then evaluate*/
 	return (built);
 }
