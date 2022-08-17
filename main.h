@@ -51,7 +51,7 @@ void cd_b(char *);
 
 /*Holberton library functions*/
 int _strcmp(char *, char *);
-char *_strdup(char *);
+char *c_strdup(char *str, int cs);
 void print_str(char *, int);
 int print_number(int);
 int _write_char(char);
