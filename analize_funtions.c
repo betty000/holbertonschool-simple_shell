@@ -95,7 +95,7 @@ void create_child(char **param_array, char *line, int count, char **av)
  * them more accessible to other parts of the program.
  * @line: A string containing the raw user input.
  * @delim: A constant string containing the desired delimeter to tokenize line.
- * @token_count: A holder for the amount of tokens in a string.
+ * @token_count: the amount of tokens in a string.
  * Return: Upon success an array of tokens representing the command. Otherwise
  * returns NULL.
  */
@@ -103,13 +103,13 @@ char **token_interface(char *line, const char *delim, int token_count)
 {
 	char **param_array;
 
-	token_count = count_token(line, delim);
+	token_count = count_token(line, delim); /*identify number of tokens (argumets)*/
 	if (token_count == -1)
 	{
 		free(line);
 		return (NULL);
 	}
-	param_array = tokenize(token_count, line, delim);
+	param_array = tokenize(token_count, line, delim); /*divide the string into the arguments (tokens)*/
 	if (param_array == NULL)
 	{
 		free(line);
@@ -120,8 +120,7 @@ char **token_interface(char *line, const char *delim, int token_count)
 }
 
 /**
- * tokenize - Separates a string into an array of tokens. DON'T FORGET TO FREE
- * on receiving function when using tokenize.
+ * tokenize - Separates a string into an array of tokens.
  * @token_count: An integer representing the amount of tokens in the array.
  * @line: String that is separated by an specified delimeter
  * @delim: The desired delimeter to separate tokens.
@@ -136,10 +135,10 @@ char **tokenize(int token_count, char *line, const char *delim)
 	char *line_cp;
 
 	line_cp = _strdup(line);
-	buffer = malloc(sizeof(char *) * (token_count + 1));
+	buffer = malloc(sizeof(char *) * (token_count + 1)); /*include the null?*/
 	if (buffer == NULL)
 		return (NULL);
-	token = strtok(line_cp, delim);
+	token = strtok(line_cp, delim); /*?*/
 	for (i = 0; token != NULL; i++)
 	{
 		buffer[i] = _strdup(token);
