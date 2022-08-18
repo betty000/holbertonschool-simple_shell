@@ -17,8 +17,10 @@ int main(__attribute__((unused)) int ac, char **av) /*call parse_line*/
 	signal(SIGINT, SIG_IGN); /*not able to use keyboard to interrupt*/
 	do {
 		command_counter++;
-		line = NULL; /*is necesary to initialize before calling the function*/
-		size = 0; /*is necesary to initialize before calling the function*/
+		/*is necesary to initialize before calling the function*/
+		line = NULL; 
+		/*is necesary to initialize before calling the function*/
+		size = 0; 
 		parse_line(line, size, command_counter, av);
 
 	} while (1);
