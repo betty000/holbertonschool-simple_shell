@@ -53,11 +53,37 @@ void env_b(__attribute__((unused))char *line)
  * exit_b - Exits the shell. After freeing allocated resources.
  * @line: A string representing the input from the user.
  */
-void exit_b(char *line)
+/*void exit_b(char *line)
 {
 	free(line);
 	exit(0);
+}*/
+void exit_b(char *line, int status)
+{
+	int n = 0, i = 0;
+
+	if (!line[1])
+	{
+		free(line, env);
+		exit(status);
+	}
+	if (line[1][0] == '+')
+		i++;
+	if (!line[1][i])
+		return (2);
+	while (line[1][i])
+	{
+		if ((line[1][i] >= '0' && line[1][i] <= '9'))
+			n = (n * 10) + (line[1][i] - '0');
+		else
+			return (2);
+		i++;
+	}
+	free(line, env);
+	exit(n);
+	return (1);
 }
+
 
 /**
  * check_built_ins - Finds the right function needed for execution.
