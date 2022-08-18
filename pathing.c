@@ -127,7 +127,9 @@ char *search_directories(char **path_tokens, char *command)
 			perror("ERROR!");
 			return (NULL);
 		}
+		/*brings information of the command*/
 		s = stat(command, &stat_buf);
+		/*if has one return the path*/
 		if (s == 0)
 		{
 			chdir(cwd);
