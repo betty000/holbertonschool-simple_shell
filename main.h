@@ -45,7 +45,7 @@ void single_free(int, ...);
 /*Builtin functions*/
 int built_in(char **, char *);
 void (*check_built_ins(char *))(char *);
-void exit_b(char *, int);
+void exit_b(char *);
 void env_b(char *);
 void cd_b(char *);
 
