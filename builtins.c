@@ -22,13 +22,13 @@ void cd_b(char *line)
 	if (param_array[1] == NULL)
 	{
 		index = find_path("HOME");
-		chdir((environ[index]) + 5);
+		chdir((environ[index]) + 5); /*change working directory*/
 	}
 	else if (_strcmp(param_array[1], "-") == 0) /*compare if 0 is that is equal*/
 		print_str(param_array[1], 0);
 
 	else
-		chdir(param_array[1]);
+		chdir(param_array[1]); /*change working directory*/
 	double_free(param_array);
 }
 
