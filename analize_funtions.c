@@ -42,7 +42,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		single_free(2, param_array, line); 
 	}
 	else 
-		exit_c(line); /*?*/
+		exit_b(line); /*?*/
 	
 	
 }
