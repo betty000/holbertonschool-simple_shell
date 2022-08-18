@@ -27,7 +27,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 			single_free(2, param_array, line);
 			return;
 		}
-		i = built_in(param_array, line); /*?*/
+		i = built_in(param_array, line); /*apply the command identified in and to the line*/
 		if (i == -1)
 			create_child(param_array, line, command_counter, av); /**/
 		for (i = 0; param_array[i] != NULL; i++) /*free the array, need to be free all the positions*/
