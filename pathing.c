@@ -55,10 +55,11 @@ int find_path(char *str)
 	{ /*of pointers to string called the "environment"*/
 		for (j = 0; j < len; j++)
 		{
-			if (environ[i][j] != str[j]) /*identify if error at not being the same string*/
+			/*identify if error at not being the same string*/
+			if (environ[i][j] != str[j]) 
 				break;
-		}
-		if (j == len && environ[i][j] == '=') /*the strings in environ have the form "name=value"*/
+		}    /*the strings in environ have the form "name=value"*/
+		if (j == len && environ[i][j] == '=') 
 			return (i);
 	}
 	return (-1);
@@ -84,7 +85,8 @@ char **tokenize_path(int index, char *str)
 	len = str_len(str);
 	token_count = 0;
 	/*Moving the pointer len of str plus = sign*/
-	env_var = environ[index] + (len + 1); /*move nome and = and gets just to name*/
+	/*move nome and = and gets just to name*/
+	env_var = environ[index] + (len + 1); 
 	path_tokens = token_interface(env_var, delim, token_count);
 	if (path_tokens == NULL)
 		return (NULL);
@@ -111,7 +113,8 @@ char *search_directories(char **path_tokens, char *command)
 
 	buf = NULL;
 	size = 0;
-	cwd = getcwd(buf, size); /*Obteins the current directory were we are working*/
+	/*Obteins the current directory were we are working*/
+	cwd = getcwd(buf, size); 
 	if (cwd == NULL)
 		return (NULL);
 	if (command[0] == '/')
@@ -140,12 +143,13 @@ char *search_directories(char **path_tokens, char *command)
 /**
  * build_path - Combines two strings one representing the path directory and
  * one representing the command file.
+ * merge the directory and the command
  * @directory: Represents a directory in the path.
  * @command: Represents a file in a directory of the path.
  * Return: Upon success a string representing the full path of a command.
  * Otherwise NULL.
  */
-char *build_path(char *directory, char *command) /*merge the directory and the command*/
+char *build_path(char *directory, char *command) 
 {
 	int i, j;
 	int dir_len;
