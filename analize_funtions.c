@@ -63,11 +63,11 @@ void create_child(char **param_array, char *line, int count, char **av)
 	if (id == 0)
 	{
 		tmp_command = param_array[0];
-		command = path_finder(param_array[0]); /*?*/
+		command = path_finder(param_array[0]); /*find the full pathn of a program*/
 		if (command == NULL) /*?*/
 		{
 			/*Looking for file in current directory*/
-			check = stat(tmp_command, &buf); /*?*/
+			check = stat(tmp_command, &buf); /*return information of a file, check the file pointed to by path and fills in buf*/
 			if (check == -1)
 			{
 				error_printing(av[0], count, tmp_command); /*print message error*/
