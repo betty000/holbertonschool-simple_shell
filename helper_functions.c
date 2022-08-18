@@ -32,7 +32,7 @@ void double_free(char **to_be_freed)
  * single_free - Will free a n amount of pointers to a string.
  * @n: The number of pointers to free.
  */
-void single_free(int n, ...)
+void single_free(int n, ...) /*variadic arguments*/
 {
 	int i;
 	char *str;
