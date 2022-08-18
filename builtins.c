@@ -67,7 +67,7 @@ void exit_c(char *line)
 {
 	free(line);
 	exit(2);
-
+}
 /**
  * check_built_ins - Finds the right function needed for execution.
  * @str: The name of the function that is needed.
