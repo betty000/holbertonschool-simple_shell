@@ -53,71 +53,12 @@ void env_b(__attribute__((unused))char *line)
  * exit_b - Exits the shell. After freeing allocated resources.
  * @line: A string representing the input from the user.
  */
-/*void exit_b(char *line)
+void exit_b(char *line)
 {
 	free(line);
 	exit(0);
 	
-}*/
-
-/**
- * _atoi - looks for numbers of a string and converts
- * them into integers.
- * @s: pointer to the string to be iterated
- * Return: the number and sign of an array, 0 if no number.
- */
-int _atoi(char *s)
-{
-	int array;
-	int sign;
-	int num;
-	int out;
-
-	num = 0;
-	sign = 0;
-	out = 0;
-	for (array = 0; s[array] != '\0'; array++)
-	{
-		if (s[array] == '-')
-		{
-			sign++;
-		}
-		if (s[array] >= 48 && s[array] <= 57)
-		{
-			num = num * 10 - (s[array] - '0');
-			out = 1;
-		}
-		else if (out == 1)
-		{
-			break;
-		}
-	}
-	if ((sign - 1) % 2 != 0)
-		num = num * -1;
-	return (num);
 }
-
-void exit_b(char *line)
-{
-	int status = 0, i;
-
-	if (line[1] == NULL)
-	{
-		free(line[0]);
-		free(line);
-		fflush(stdout);
-		exit(status);
-	}
-
-	for (i = 0; line[1][i] != '\0'; i++)
-	{
-		if (line[1][i] < 48 || line[1][i] > 57)
-			return (3);
-	}
-	status = _atoi(line[1]);
-	free(line[0]);
-	free(line);
-	exit(status);
 
 /**
  * check_built_ins - Finds the right function needed for execution.
