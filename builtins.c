@@ -56,7 +56,7 @@ void env_b(__attribute__((unused))char *line)
 void exit_b(char *line)
 {
 	free(line);
-	exit(EXIT_SUCCESS);
+	exit(0);
 }
 
 /**
@@ -66,7 +66,7 @@ void exit_b(char *line)
 void exit_c(char *line)
 {
 	free(line);
-	exit(EXIT_FAILURE);
+	exit(2);
 }
 
 /**
