@@ -80,8 +80,7 @@ void (*check_built_ins(char *str))(char *str)
 	int i;
 
 	builtin_t buildin[] = {
-		{"exit", exit_c},
-		{"exit", exit_b},
+		{"exit", exit_b, exit_c},
 		{"env", env_b},
 		{"cd", cd_b},
 		{NULL, NULL}
