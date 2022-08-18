@@ -34,9 +34,10 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 			free(param_array[i]);
 		single_free(2, param_array, line); /*free array with function*/
 	}
-	else (read_len = 0) 
+	else 
+		if (read_len = 0) 
 		exit_b(line); /*?*/
-	else (read_len = 2)
+		if (read_len = 2)
 		exit_c(line);
 	
 }
