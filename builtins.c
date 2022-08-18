@@ -56,7 +56,7 @@ void env_b(__attribute__((unused))char *line)
 void exit_b(char *line)
 {
 	free(line);
-	exit(0);
+	exit(exitStatus);
 	
 }
 
