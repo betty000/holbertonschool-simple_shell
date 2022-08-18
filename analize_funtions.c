@@ -18,21 +18,28 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	const char *delim = "\n\t ";
 
 	token_count = 0;
-	read_len = getline(&line, &size, stdin); /*we get the lenght of the line*/
+	/*we get the lenght of the line*/
+	read_len = getline(&line, &size, stdin); 
 	if (read_len != -1) /*condition to creat array*/
 	{
-		param_array = token_interface(line, delim, token_count); /*array calls the function token, that separate the arguments*/
-		if (param_array[0] == NULL) /*if array is null free array with function*/
+		/*array calls the function token, that separate*/
+		/*the arguments*/
+		param_array = token_interface(line, delim, token_count); 
+		/*if array is null free array with function*/
+		if (param_array[0] == NULL) 
 		{
 			single_free(2, param_array, line);
 			return;
 		}
-		i = built_in(param_array, line); /*apply the command identified in and to the line*/
+		 /*apply the command identified in and to the line*/
+		i = built_in(param_array, line);
 		if (i == -1)
-			create_child(param_array, line, command_counter, av); /**/
-		for (i = 0; param_array[i] != NULL; i++) /*free the array, need to be free all the positions*/
+			create_child(param_array, line, command_counter, av);
+		/*free the array, need to be free all the positions*/
+		for (i = 0; param_array[i] != NULL; i++) 
 			free(param_array[i]);
-		single_free(2, param_array, line); /*free array with function*/
+		/*free array with function*/
+		single_free(2, param_array, line); 
 	}
 	else 
 		exit_c(line); /*?*/
@@ -59,23 +66,31 @@ void create_child(char **param_array, char *line, int count, char **av)
 	char *tmp_command;
 	char *command;
 
-	id = fork(); /*make a call to the father to run the next code at the same time*/
+	/*make a call to the father to run the next code at the same time*/
+	id = fork(); 
 	if (id == 0)
 	{
 		tmp_command = param_array[0];
-		command = path_finder(param_array[0]); /*find the full pathn of a program*/
+		/*find the full pathn of a program*/
+		command = path_finder(param_array[0]); 
 		if (command == NULL) /*?*/
 		{
 			/*Looking for file in current directory*/
-			check = stat(tmp_command, &buf); /*return information of a file, check the file pointed to by path and fills in buf*/
+			/*return information of a file, check the file */
+			/*pointed to by path and fills in buf*/
+			check = stat(tmp_command, &buf); 
 			if (check == -1)
 			{
-				error_printing(av[0], count, tmp_command); /*print message error*/
+				/*print message error*/
+				error_printing(av[0], count, tmp_command); 
 				print_str(": not found", 0);
-				single_free(2, line, tmp_command); /*free with function*/
-				for (i = 1; param_array[i]; i++) /*free the array, need to be free all the positions*/
+				/*free with function*/
+				single_free(2, line, tmp_command); 
+				/*free the array, need to be free all */
+				/*the positions*/
+				for (i = 1; param_array[i]; i++) 
 					free(param_array[i]);
-				free(param_array); /*needed?*/
+				free(param_array);
 				exit(100); /*?*/
 			}
 			/*file exist in cwd or has full path*/
@@ -84,8 +99,11 @@ void create_child(char **param_array, char *line, int count, char **av)
 		param_array[0] = command;
 		if (param_array[0] != NULL)
 		{
-			if (execve(param_array[0], param_array, environ) == -1) /*replace the program for the one with the filename, use the variable that point to vector*/
-				exec_error(av[0], count, tmp_command); /*print exec error*/
+			/*replace the program for the one with the filename, */
+			/*use the variable that point to vector*/
+			/*print exec error*/
+			if (execve(param_array[0], param_array, environ) == -1) 
+				exec_error(av[0], count, tmp_command); 
 		}
 	}
 	else
@@ -108,13 +126,15 @@ char **token_interface(char *line, const char *delim, int token_count)
 {
 	char **param_array;
 
-	token_count = count_token(line, delim); /*identify number of tokens (argumets)*/
+	/*identify number of tokens (argumets)*/
+	token_count = count_token(line, delim); 
 	if (token_count == -1)
 	{
 		free(line);
 		return (NULL);
 	}
-	param_array = tokenize(token_count, line, delim); /*divide the string into the arguments (tokens)*/
+	/*divide the string into the arguments (tokens)*/
+	param_array = tokenize(token_count, line, delim); 
 	if (param_array == NULL)
 	{
 		free(line);
@@ -140,7 +160,8 @@ char **tokenize(int token_count, char *line, const char *delim)
 	char *line_cp;
 
 	line_cp = _strdup(line);
-	buffer = malloc(sizeof(char *) * (token_count + 1)); /*include the null?*/
+	/*include the null?*/
+	buffer = malloc(sizeof(char *) * (token_count + 1)); 
 	if (buffer == NULL)
 		return (NULL);
 	token = strtok(line_cp, delim); /*?*/
