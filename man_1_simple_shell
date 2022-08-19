@@ -1,0 +1,40 @@
+.TH man 1 "20 November 2017" "1.0" "Olaf The Shell man page"
+.SH NAME
+.B Simple_shell
+- A basic UNIX command line interpreter.
+.SH SYNOPSIS
+Simple_shell is designed to interpret and execute command line arguments read from the standard input.
+.SH DESCRIPTION
+Simple_shell is a program that reads line by line from a file or the terminal line. After it interprets the lines and executes it if the line is a valid command. 
+
+.SH USAGE
+All the files are to be compiled on an Ubuntu 14.04 LTS machine with "gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh".
+
+Once compiled, to start the program, run:
+.br
+$ ./hsh
+
+To exit the program, run:
+.br
+$ exit
+
+.SH BUILT-INS
+The following built-ins are supported by Simple_shell:
+
+.B unsetenv VARIABLE - 
+Remove an environment variable.
+
+.B setenv VARIABLE VALUE - 
+Initialize a new environment variable, or modify an existing one. 
+
+.B env - 
+Print the current environment.
+
+.SH RETURN VALUE
+Simple_shell will exit with status 0.
+.SH SEE ALSO
+.I sh(1)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Maria Echeverria, Nicolas Cuevas
