@@ -144,7 +144,7 @@ char **tokenize(int token_count, char *line, const char *delim)
 	buffer = malloc(sizeof(char *) * (token_count + 1));
 	if (buffer == NULL)
 		return (NULL);
-	token = strtok(line_cp, delim); /*split string into tokens based on delimeter*/
+	token = strtok(line_cp, delim); /*split string into tokens based delimeter*/
 	for (i = 0; token != NULL; i++)
 	{
 		buffer[i] = _strdup(token);
