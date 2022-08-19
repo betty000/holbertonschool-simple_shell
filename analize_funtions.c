@@ -35,7 +35,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		for (i = 0; param_array[i] != NULL; i++)
 			free(param_array[i]);
 		single_free(2, param_array, line); /*free array with function*/
-	}	
+	}
 	else
 		exit_b(line);
 }
