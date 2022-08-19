@@ -42,7 +42,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 
 /**
  * create_child - Creates a child in order to execute another program.
- * if error identify oath and print error.
+ * if error identify path and print error.
  * @param_array: An array of pointers to strings containing the possible name
  * of a program and its parameters. This array is NULL terminated.
  * @line: The contents of the read line.
