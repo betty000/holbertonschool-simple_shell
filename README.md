@@ -21,6 +21,12 @@ The built_in() function select and apply the function related to the command tha
 
 To work the built_in() function calls check_built_ins(), that select from a list the function.
 
+The create_child() function identify the path and guive an error message; for that, it calls path_finder(), that finds the path of a program. The last function mentioned calls:
+
+* find_path(): find an index of enviromental variable
+* search_directories(): look for a file in path directories
+* build_path(): combine command and directory
+
 There are necesary other functions to make work the ones decribed before:
 
 * str_len(): lenght of a string
