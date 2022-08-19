@@ -19,7 +19,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 
 	token_count = 0;
 	/*we get the lenght of the line*/
-	read_len = getline(&line, &size, stdin); 
+	read_len = getline(&line, &size, stdin);
 	if (read_len != -1) /*condition to creat array*/
 	{
 		/*array calls the function token, that separate*/
