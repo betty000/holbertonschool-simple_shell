@@ -23,13 +23,12 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	{
 		/*array calls the function token, that separate the arguments*/
 		param_array = token_interface(line, delim, token_count);
-		
 		if (param_array[0] == NULL) /*if array is null free array with function*/
 		{
 			single_free(2, param_array, line);
 			return;
 		}
-		i = built_in(param_array, line); /*apply the command identified in and to the line*/
+		i = built_in(param_array, line); /*apply command identified to the line*/
 		if (i == -1)
 			create_child(param_array, line, command_counter, av);
 		/*free the array, need to be free all the positions*/
@@ -70,25 +69,18 @@ void create_child(char **param_array, char *line, int count, char **av)
 		tmp_command = param_array[0];
 		/*find the full pathn of a program*/
 		command = path_finder(param_array[0]);
-		if (command == NULL) /*?*/
+		if (command == NULL)
 		{
-			/*Looking for file in current directory*/
-			/*return information of a file, check the file */
-			/*pointed to by path and fills in buf*/
-			check = stat(tmp_command, &buf);
+			check = stat(tmp_command, &buf);/*Looking for file in current directory*/
 			if (check == -1)
 			{
-				/*print message error*/
 				error_printing(av[0], count, tmp_command);
 				print_str(": not found", 0);
-				/*free with function*/
-				single_free(2, line, tmp_command);
-				/*free the array, need to be free all */
-				/*the positions*/
+				single_free(2, line, tmp_command); /*free the array */
 				for (i = 1; param_array[i]; i++)
 					free(param_array[i]);
 				free(param_array);
-				exit(100); /*?*/
+				exit(100);
 			}
 			/*file exist in cwd or has full path*/
 			command = tmp_command;
@@ -105,7 +97,6 @@ void create_child(char **param_array, char *line, int count, char **av)
 	}
 	else
 		wait(&status);
-		/*WEXITSTATUS(status);*/
 }
 
 /**
