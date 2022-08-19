@@ -25,9 +25,9 @@ The token_interface() function calls count_token(), that contain the number of t
 
 ```
 $ ./shell_0.3
-=> /bin/ls
-barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
-env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     shell.c    stat.c  wait
+=> /bin/lswait.c
+simple_shell.c analize_funtions.c pathing.c builtins.c helper_functions.c print_number.c secondary_functions.c 
+exec    fork    mypid   ppid   printenv  promptc  shell shell_0.3  wait
 ```
 
 ## Testing
