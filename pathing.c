@@ -16,18 +16,18 @@ char *path_finder(char *command) /*calls other functions for the path*/
 	char *directory;
 
 	index = find_path(str); /*?*/
-	path_tokens = tokenize_path(index, str); /*?*/
+	path_tokens = tokenize_path(index, str); 
 	if (path_tokens == NULL)
 		return (NULL);
 
-	directory = search_directories(path_tokens, command); /*?*/
+	directory = search_directories(path_tokens, command); 
 	if (directory == NULL)
 	{
-		double_free(path_tokens); /*?*/
+		double_free(path_tokens);
 		return (NULL);
 	}
 
-	constructed = build_path(directory, command); /*?*/
+	constructed = build_path(directory, command); 
 	if (constructed == NULL)
 	{
 		double_free(path_tokens);
