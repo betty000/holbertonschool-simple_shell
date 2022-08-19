@@ -19,7 +19,6 @@ int main(__attribute__((unused)) int ac, char **av) /*call parse_line*/
 		command_counter++;
 		/*is necesary to initialize before calling the function*/
 		line = NULL;
-		/*is necesary to initialize before calling the function*/
 		size = 0;
 		parse_line(line, size, command_counter, av);
 
