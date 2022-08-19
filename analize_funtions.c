@@ -36,7 +36,7 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		if (i == -1)
 			create_child(param_array, line, command_counter, av);
 		/*free the array, need to be free all the positions*/
-		for (i = 0; param_array[i] != NULL; i++) 
+		for (i = 0; param_array[i] != NULL; i++)
 			free(param_array[i]);
 		/*free array with function*/
 		single_free(2, param_array, line);
@@ -89,7 +89,7 @@ void create_child(char **param_array, char *line, int count, char **av)
 				single_free(2, line, tmp_command);
 				/*free the array, need to be free all */
 				/*the positions*/
-				for (i = 1; param_array[i]; i++) 
+				for (i = 1; param_array[i]; i++)
 					free(param_array[i]);
 				free(param_array);
 				exit(100); /*?*/
@@ -109,7 +109,7 @@ void create_child(char **param_array, char *line, int count, char **av)
 	}
 	else
 		wait(&status);
-		/*WEXITSTATUS(status);*/		
+		/*WEXITSTATUS(status);*/	
 }
 
 /**
@@ -126,14 +126,14 @@ char **token_interface(char *line, const char *delim, int token_count)
 	char **param_array;
 
 	/*identify number of tokens (argumets)*/
-	token_count = count_token(line, delim); 
+	token_count = count_token(line, delim);
 	if (token_count == -1)
 	{
 		free(line);
 		return (NULL);
 	}
 	/*divide the string into the arguments (tokens)*/
-	param_array = tokenize(token_count, line, delim); 
+	param_array = tokenize(token_count, line, delim);
 	if (param_array == NULL)
 	{
 		free(line);
@@ -160,7 +160,7 @@ char **tokenize(int token_count, char *line, const char *delim)
 
 	line_cp = _strdup(line);
 	/*include the null?*/
-	buffer = malloc(sizeof(char *) * (token_count + 1)); 
+	buffer = malloc(sizeof(char *) * (token_count + 1));
 	if (buffer == NULL)
 		return (NULL);
 	token = strtok(line_cp, delim); /*?*/
