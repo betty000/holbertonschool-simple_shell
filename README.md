@@ -1,4 +1,4 @@
-![alt text](https://github.com/nicolas1897/holbertonschool-printf/blob/main/flowchart.jpg)
+![alt text](https://github.com/nicolas1897/holbertonschool-simple_shell/blob/main/simple%20shell-specific.drawio.png)
 
 # Project Printf
 ### Holberton School 
