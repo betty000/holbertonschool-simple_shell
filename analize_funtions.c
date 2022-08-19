@@ -18,28 +18,24 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	const char *delim = "\n\t ";
 
 	token_count = 0;
-	/*we get the lenght of the line*/
-	read_len = getline(&line, &size, stdin);
+	read_len = getline(&line, &size, stdin); /*we get the lenght of the line*/
 	if (read_len != -1) /*condition to creat array*/
 	{
-		/*array calls the function token, that separate*/
-		/*the arguments*/
+		/*array calls the function token, that separate the arguments*/
 		param_array = token_interface(line, delim, token_count);
-		/*if array is null free array with function*/
-		if (param_array[0] == NULL)
+		
+		if (param_array[0] == NULL) /*if array is null free array with function*/
 		{
 			single_free(2, param_array, line);
 			return;
 		}
-		 /*apply the command identified in and to the line*/
-		i = built_in(param_array, line);
+		i = built_in(param_array, line); /*apply the command identified in and to the line*/
 		if (i == -1)
 			create_child(param_array, line, command_counter, av);
 		/*free the array, need to be free all the positions*/
 		for (i = 0; param_array[i] != NULL; i++)
 			free(param_array[i]);
-		/*free array with function*/
-		single_free(2, param_array, line);
+		single_free(2, param_array, line); /*free array with function*/
 	}
 	else if (read_len == 0)
 		exit_c(line); /*?*/
