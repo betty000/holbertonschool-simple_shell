@@ -23,16 +23,16 @@ To work the built_in() function calls check_built_ins(), that select from a list
 
 There are necesary other functions to make work the ones decribed before:
 
-* str_len()
-* double_free()
-* single_free()
-* error_printing()
-* exec_error()
-* _strcmp()
-* _strdup()
-* print_str()
-* _write_char()
-* print_number()
+* str_len(): lenght of a string
+* double_free(): free double pointer variables
+* single_free(): free pointers of a string
+* error_printing(): print an error message
+* exec_error(): print exec error
+* _strcmp(): compare 2 strings
+* _strdup(): duplicate a string
+* print_str(): print a string
+* _write_char(): print char
+* print_number(): print a number
 
 ## Requirements
 
