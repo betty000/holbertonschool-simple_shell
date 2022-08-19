@@ -27,7 +27,7 @@ The create_child() function identify the path and guive an error message; for th
 * search_directories(): look for a file in path directories
 * build_path(): combine command and directory
 
-There are necesary other functions to make work the ones decribed before:
+There are necesary other functions to make work the ones described before:
 
 * str_len(): lenght of a string
 * double_free(): free double pointer variables
