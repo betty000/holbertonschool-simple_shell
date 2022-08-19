@@ -9,11 +9,30 @@ Program that works as an interface, it takes commands from the user by the keybo
 
 ## Description
 
-The simple shell takes a line and use strtok() function to create arrays of the commands (tokens); for that, the main function calls parse_line(), and also this last one calls token_interface() and built_in().
+The simple shell takes a line and use strtok() function to create arrays of the commands (tokens); for that, the main function calls parse_line(), and also this last one calls token_interface() and built_in(), if there is necessary it calls create_child().
 
 The token_interface() function calls count_token(), that contain the number of tokens, and tokenizen(), that create the array of tokens with the strtock() function, returning the array of commands.
 
+The built_in() function select and apply the function related to the command that was identified. The functions that are going to be used are:
 
+* cd_b(): change working directory
+* env_b(): print environmental variables
+* exit_b(): free allocate resources and exit shell
+
+To work the built_in() function calls check_built_ins(), that select from a list the function.
+
+There are necesary other functions to make work the ones decribed before:
+
+* str_len()
+* double_free()
+* single_free()
+* error_printing()
+* exec_error()
+* _strcmp()
+* _strdup()
+* print_str()
+* _write_char()
+* print_number()
 
 ## Requirements
 
