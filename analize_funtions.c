@@ -141,7 +141,6 @@ char **tokenize(int token_count, char *line, const char *delim)
 	char *line_cp;
 
 	line_cp = _strdup(line);
-	/*include the null?*/
 	buffer = malloc(sizeof(char *) * (token_count + 1));
 	if (buffer == NULL)
 		return (NULL);
