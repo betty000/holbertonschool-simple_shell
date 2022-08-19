@@ -15,7 +15,7 @@ char *path_finder(char *command) /*calls other functions for the path*/
 	int index;
 	char *directory;
 
-	index = find_path(str); /*?*/
+	index = find_path(str); 
 	path_tokens = tokenize_path(index, str); 
 	if (path_tokens == NULL)
 		return (NULL);
