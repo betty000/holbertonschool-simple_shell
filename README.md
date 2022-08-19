@@ -1,68 +1,60 @@
 ![alt text](https://github.com/nicolas1897/holbertonschool-simple_shell/blob/main/simple%20shell-general.drawio.png)
 
-# Project Printf
+# Project Simple Shell
 ### Holberton School 
 
 ## Synopsis
 
-This function prints, acording to a format, the arguments received from the user.
+Program that works as an interface, it takes commands from the user by the keyboard and gives them to the kernel, operating system to perform, execute the programs related. 
 
 ## Description
 
-The _printf() function receive arguments and print them, when the function apply the condition related to the character of the list that is after the symbol '%', that is the one that will be search with the analyzer() function, will call the funtions to print the next type of data:
+The simple shell takes a line and use strtok() function to create arrays of the commands (tokens); for that, the main function calls parse_line(), and also this last one calls token_interface() and built_in().
 
-* c: Print a character
-* s: Print a string
-* %: Print the character '%'
-* d: Print a number
-* i: Print an integer
+The token_interface() function calls count_token(), that contain the number of tokens, and tokenizen(), that create the array of tokens with the strtock() function, returning the array of commands.
+
+
 
 ## Requirements
 
 * Compiled on Ubuntu 20.04 LTS
-* Compile code with: "gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c" or "gcc *.c"
-* Include the "main.h" header file to use the _printf() function in your main file.
+* Compile code with: "gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh"
+* Include the "main.h" header file in main program.
 
 ## Example
 
 ```
-#include <limits.h>
-#include <stdio.h>
-#include "main.h"
-
-/**
- * main - Entry point
- * Return: Always 0
- */
-
-int main(void)
-{
-     int len;
-     unsigned int ui;
-     void *addr;
-
-     len = _printf("Let's try to printf a simple sentence.\n");
-     _printf("Length:[%d, %i]\n", len, len);
-     _printf("Negative:[%d]\n", -762534);
-     len = _printf("Percent:[%%]\n");
-     _printf("String:[%s]\n", "I am a string !");
-     _printf("Character:[%c]\n", 'H');
-}
+$ ./shell_0.3
+=> /bin/ls
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     shell.c    stat.c  wait
 ```
 
 ## Testing
 
 ```
-$./_printf
-Let's try to printf a simple sentence.
-Length:[39, 39]
-Negative:[-762534]
-Percent:[%]
-String:[I am a string !]
-Character:[H]
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
 $
 ```
+
+```
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
+```
+
 ## AUTHORS
 * Maria Echeverria
-* Luiyi Hurtado
 * Nicolas Cuevas
