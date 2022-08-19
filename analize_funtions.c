@@ -24,9 +24,9 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 	{
 		/*array calls the function token, that separate*/
 		/*the arguments*/
-		param_array = token_interface(line, delim, token_count); 
+		param_array = token_interface(line, delim, token_count);
 		/*if array is null free array with function*/
-		if (param_array[0] == NULL) 
+		if (param_array[0] == NULL)
 		{
 			single_free(2, param_array, line);
 			return;
@@ -39,14 +39,12 @@ void parse_line(char *line, size_t size, int command_counter, char **av)
 		for (i = 0; param_array[i] != NULL; i++) 
 			free(param_array[i]);
 		/*free array with function*/
-		single_free(2, param_array, line); 
+		single_free(2, param_array, line);
 	}
 	else if (read_len == 0)
 		exit_c(line); /*?*/
 	else
 		exit_b(line);
-	
-	
 }
 
 /**
@@ -70,25 +68,25 @@ void create_child(char **param_array, char *line, int count, char **av)
 	char *command;
 
 	/*make a call to the father to run the next code at the same time*/
-	id = fork(); 
+	id = fork();
 	if (id == 0)
 	{
 		tmp_command = param_array[0];
 		/*find the full pathn of a program*/
-		command = path_finder(param_array[0]); 
+		command = path_finder(param_array[0]);
 		if (command == NULL) /*?*/
 		{
 			/*Looking for file in current directory*/
 			/*return information of a file, check the file */
 			/*pointed to by path and fills in buf*/
-			check = stat(tmp_command, &buf); 
+			check = stat(tmp_command, &buf);
 			if (check == -1)
 			{
 				/*print message error*/
-				error_printing(av[0], count, tmp_command); 
+				error_printing(av[0], count, tmp_command);
 				print_str(": not found", 0);
 				/*free with function*/
-				single_free(2, line, tmp_command); 
+				single_free(2, line, tmp_command);
 				/*free the array, need to be free all */
 				/*the positions*/
 				for (i = 1; param_array[i]; i++) 
@@ -105,15 +103,13 @@ void create_child(char **param_array, char *line, int count, char **av)
 			/*replace the program for the one with the filename, */
 			/*use the variable that point to vector*/
 			/*print exec error*/
-			if (execve(param_array[0], param_array, environ) == -1) 
-				exec_error(av[0], count, tmp_command); 
+			if (execve(param_array[0], param_array, environ) == -1)
+				exec_error(av[0], count, tmp_command);
 		}
 	}
 	else
 		wait(&status);
-		/*WEXITSTATUS(status);*/
-		
-	
+		/*WEXITSTATUS(status);*/		
 }
 
 /**
