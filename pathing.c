@@ -51,15 +51,15 @@ int find_path(char *str)
 	int j;
 
 	len = str_len(str);
-	for (i = 0; environ[i] != NULL; i++) /*variable points to an array*/ 
+	for (i = 0; environ[i] != NULL; i++) /*variable points to an array*/
 	{ /*of pointers to string called the "environment"*/
 		for (j = 0; j < len; j++)
 		{
 			/*identify if error at not being the same string*/
-			if (environ[i][j] != str[j]) 
+			if (environ[i][j] != str[j])
 				break;
 		}    /*the strings in environ have the form "name=value"*/
-		if (j == len && environ[i][j] == '=') 
+		if (j == len && environ[i][j] == '=')
 			return (i);
 	}
 	return (-1);
@@ -86,7 +86,7 @@ char **tokenize_path(int index, char *str)
 	token_count = 0;
 	/*Moving the pointer len of str plus = sign*/
 	/*move nome and = and gets just to name*/
-	env_var = environ[index] + (len + 1); 
+	env_var = environ[index] + (len + 1);
 	path_tokens = token_interface(env_var, delim, token_count);
 	if (path_tokens == NULL)
 		return (NULL);
@@ -114,7 +114,7 @@ char *search_directories(char **path_tokens, char *command)
 	buf = NULL;
 	size = 0;
 	/*Obteins the current directory were we are working*/
-	cwd = getcwd(buf, size); 
+	cwd = getcwd(buf, size);
 	if (cwd == NULL)
 		return (NULL);
 	if (command[0] == '/')
@@ -151,7 +151,7 @@ char *search_directories(char **path_tokens, char *command)
  * Return: Upon success a string representing the full path of a command.
  * Otherwise NULL.
  */
-char *build_path(char *directory, char *command) 
+char *build_path(char *directory, char *command)
 {
 	int i, j;
 	int dir_len;
