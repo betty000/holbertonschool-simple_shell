@@ -39,7 +39,6 @@ char *_strdup(char *src)
 	dest[i] = '\0';
 	return (dest);
 }
-	
 
 /**
  * print_str - Prints a string character by character.
