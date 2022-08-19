@@ -24,7 +24,7 @@ void cd_b(char *line)
 		index = find_path("HOME");
 		chdir((environ[index]) + 5); /*change working directory*/
 	}    /*compare if 0 is that is equal*/
-	else if (_strcmp(param_array[1], "-") == 0) 
+	else if (_strcmp(param_array[1], "-") == 0)
 		print_str(param_array[1], 0);
 
 	else
