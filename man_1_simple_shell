@@ -1,4 +1,4 @@
-.TH man 1 "20 November 2017" "1.0" "Olaf The Shell man page"
+.TH man 1 "18 August 2022" "1.0" "Simple_shell man page"
 .SH NAME
 .B Simple_shell
 - A basic UNIX command line interpreter.
