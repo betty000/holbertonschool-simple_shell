@@ -7,7 +7,7 @@
  * @size: A holder for numbers of size_t. Will always be initilized to 0.
  * @command_counter: A counter keeping track of how many commands have been
  * entered into the shell.
- * @av: Name of the program running the shell  ?????????
+ * @av: Name of the program running the shell
  */
 void parse_line(char *line, size_t size, int command_counter, char **av)
 {
