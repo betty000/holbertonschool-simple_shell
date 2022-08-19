@@ -88,11 +88,8 @@ void create_child(char **param_array, char *line, int count, char **av)
 		param_array[0] = command;
 		if (param_array[0] != NULL)
 		{
-			/*replace the program for the one with the filename, */
-			/*use the variable that point to vector*/
-			/*print exec error*/
 			if (execve(param_array[0], param_array, environ) == -1)
-				exec_error(av[0], count, tmp_command);
+				exec_error(av[0], count, tmp_command); /*print exec error*/
 		}
 	}
 	else
