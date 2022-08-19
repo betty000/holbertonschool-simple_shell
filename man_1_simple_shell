@@ -7,6 +7,35 @@ Simple_shell is designed to interpret and execute command line arguments read fr
 .SH DESCRIPTION
 Simple_shell is a program that reads line by line from a file or the terminal line. After it interprets the lines and executes it if the line is a valid command. 
 
+The simple shell takes a line and use strtok() function to create arrays of the commands (tokens); for that, the main function calls parse_line(), and also this last one calls token_interface() and built_in(), if there is necessary it calls create_child().
+
+The token_interface() function calls count_token(), that contain the number of tokens, and tokenizen(), that create the array of tokens with the strtock() function, returning the array of commands.
+
+The built_in() function select and apply the function related to the command that was identified. The functions that are going to be used are:
+
+cd_b(): change working directory
+env_b(): print environmental variables
+exit_b(): free allocate resources and exit shell
+To work the built_in() function calls check_built_ins(), that select from a list the function.
+
+The create_child() function identify the path and guive an error message; for that, it calls path_finder(), that finds the path of a program. The last function mentioned calls:
+
+find_path(): find an index of enviromental variable
+search_directories(): look for a file in path directories
+build_path(): combine command and directory
+There are necesary other functions to make work the ones described before:
+
+str_len(): lenght of a string
+double_free(): free double pointer variables
+single_free(): free pointers of a string
+error_printing(): print an error message
+exec_error(): print exec error
+_strcmp(): compare 2 strings
+_strdup(): duplicate a string
+print_str(): print a string
+_write_char(): print char
+print_number(): print a number
+
 .SH USAGE
 All the files are to be compiled on an Ubuntu 14.04 LTS machine with "gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh".
 
